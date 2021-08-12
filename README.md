@@ -17,7 +17,7 @@ Main.java performs a set of operations using both ArrayList and LinkedList:
     - Access an element at index 0
     - Access an element at index size()-1
 
-Each operation is repeated ``n`` times. The time of these operations are timed and compared for the two different datastructures.
+Each operation is repeated ``n`` times. Each operation is timed and compared for the two different datastructures.
 
 Why do ArrayList and LinkedList perform differently at these operations? **Give a Big-O analysis**.
 
