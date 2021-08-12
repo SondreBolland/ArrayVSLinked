@@ -1,7 +1,9 @@
 # ArrayList VS LinkedList
 
-ArrayList and Linked list are two implementations of the List interface. 
+ArrayList and LinkedList are two implementations of the List interface. 
 Each have their own appealing features which we will explore in this task.
+
+In this task LinkedList is singly linked.
 
 ## Task
 For both ArrayList and LinkedList, implement **add(element)**, **add(index, element)** and **get(index)**.
