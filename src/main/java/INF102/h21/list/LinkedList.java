@@ -76,6 +76,7 @@ public class LinkedList<T> implements List<T> {
 		return str.toString();
 	}
 
+	@SuppressWarnings("hiding")
 	private class Node<T> {
 		T data;
 		Node<T> next;

@@ -32,101 +32,161 @@ public class Main {
 
 		// Random Insertion
 		// ArrayList
-		System.out.printf("----%s Random Insertions----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		randomInsertion(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("----%sRandom Insertions----%n", formatter.format(nOperations));
+		timeElapsedArray = timeRandomInsertion(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
 		// Linked List
-		startTime = System.nanoTime();
-		randomInsertion(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		timeElapsedLinked = timeRandomInsertion(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
 		// Head Insertion
 		// ArrayList
-		System.out.printf("%n----%s Head Insertions----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		headInsertion(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("%n----%sHead Insertions----%n", formatter.format(nOperations));
+		timeElapsedArray = timeHeadInsertion(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
-		// LinkedList
-		startTime = System.nanoTime();
-		headInsertion(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		// Linked List
+		timeElapsedLinked = timeHeadInsertion(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
 		// Tail Insertion
 		// ArrayList
-		System.out.printf("%n----%s Tail Insertions----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		tailInsertion(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("%n----%sTail Insertions----%n", formatter.format(nOperations));
+		timeElapsedArray = timeTailInsertion(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
-		// LinkedList
-		startTime = System.nanoTime();
-		tailInsertion(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		// Linked List
+		timeElapsedLinked = timeTailInsertion(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
 		// Random Access
 		// ArrayList
-		System.out.printf("%n----%s Random Access----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		randomAccess(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("%n----%sRandom Access----%n", formatter.format(nOperations));
+		timeElapsedArray = timeRandomAccess(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
-		// LinkedList
-		startTime = System.nanoTime();
-		randomAccess(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		// Linked List
+		timeElapsedLinked = timeRandomAccess(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
 		// Head Access
 		// ArrayList
-		System.out.printf("%n----%s Head Access----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		headAccess(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("%n----%sHead Access----%n", formatter.format(nOperations));
+		timeElapsedArray = timeHeadAccess(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
-		// LinkedList
-		startTime = System.nanoTime();
-		headAccess(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		// Linked List
+		timeElapsedLinked = timeHeadAccess(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
 		// Tail Access
 		// ArrayList
-		System.out.printf("%n----%s Tail Access----%n", formatter.format(nOperations));
-		startTime = System.nanoTime();
-		tailAccess(arrayList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedArray = (endTime - startTime) / 1000;
+		System.out.printf("%n----%sTail Access----%n", formatter.format(nOperations));
+		timeElapsedArray = timeTailAccess(arrayList, nOperations);
 		printResult(arrayList, timeElapsedArray);
-		// LinkedList
-		startTime = System.nanoTime();
-		tailAccess(linkedList, nOperations);
-		endTime = System.nanoTime();
-		timeElapsedLinked = (endTime - startTime) / 1000;
+		// Linked List
+		timeElapsedLinked = timeTailAccess(linkedList, nOperations);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 	}
 
+	/**
+	 * Performs <code>nInsertions</code> of random insertions. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nInsertions number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeRandomInsertion(List<Integer> list, int nInsertions) {
+		long startTime = System.nanoTime();
+		randomInsertion(list, nInsertions);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
+	/**
+	 * Performs <code>nInsertions</code> of head insertions. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nInsertions number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeHeadInsertion(List<Integer> list, int nInsertions) {
+		long startTime = System.nanoTime();
+		headInsertion(list, nInsertions);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
+	/**
+	 * Performs <code>nInsertions</code> of tail insertions. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nInsertions number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeTailInsertion(List<Integer> list, int nInsertions) {
+		long startTime = System.nanoTime();
+		tailInsertion(list, nInsertions);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
+	/**
+	 * Performs <code>nAccess</code> of random access. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nAccess number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeRandomAccess(List<Integer> list, int nAccess) {
+		long startTime = System.nanoTime();
+		randomAccess(list, nAccess);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
+	/**
+	 * Performs <code>nAccess</code> of head access. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nAccess number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeHeadAccess(List<Integer> list, int nAccess) {
+		long startTime = System.nanoTime();
+		headAccess(list, nAccess);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
+	/**
+	 * Performs <code>nAccess</code> of tail access. 
+	 * Times the process
+	 * 
+	 * @param list of elements to be inserted
+	 * @param nAccess number of insertions to be performed
+	 * @return time (nanoseconds) taken to perform operations
+	 */
+	public static long timeTailAccess(List<Integer> list, int nAccess) {
+		long startTime = System.nanoTime();
+		tailAccess(list, nAccess);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
+	}
+	
 	public static void printResult(List<Integer> list, long microSeconds) {
 		String listType = list.getClass().getSimpleName();
 		double seconds = microSeconds / 1000000.0;
