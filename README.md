@@ -9,13 +9,13 @@ For both ArrayList and LinkedList, implement **add(element)**, **add(index, elem
 Run ArrayLinkedTest.java to see if your implementation is correct.
 Main.java performs a set of operations using both ArrayList and LinkedList:
   * Insertion
-   - Insert an element at a random index
-   - Insert an element at index 0
-   - Insert an element at index size()-1
+    - Insert an element at a random index
+    - Insert an element at index 0
+    - Insert an element at index size()-1
   * Access
-   - Access an element at a random index
-   - Access an element at index 0
-   - Access an element at index size()-1
+    - Access an element at a random index
+    - Access an element at index 0
+    - Access an element at index size()-1
 
 Each operation is repeated ``n`` times. The time of these operations are timed and compared for the two different datastructures.
 
