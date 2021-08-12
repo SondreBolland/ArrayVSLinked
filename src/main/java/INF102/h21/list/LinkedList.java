@@ -19,17 +19,19 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public T get(int index) {
 		// TODO: Implement method
-		return null;
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 
 	@Override
 	public void add(int index, T element) {
 		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 
 	@Override
 	public void add(T element) {
 		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	@SuppressWarnings("unchecked")
