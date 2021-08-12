@@ -24,8 +24,6 @@ public class Main {
 			linkedList.add(i);
 		}
 
-		long startTime;
-		long endTime;
 		long timeElapsedArray;
 		long timeElapsedLinked;
 		int nOperations = 10000;

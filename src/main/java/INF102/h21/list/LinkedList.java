@@ -2,8 +2,6 @@ package INF102.h21.list;
 
 public class LinkedList<T> implements List<T> {
 
-	public static final int DEFAULT_CAPACITY = 10;
-
 	private int n;
 
 	private Node<T> head;
@@ -20,44 +18,18 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T get(int index) {
-		Node<T> currentNode = head;
-		for (int i = 0; i < index; i++) {
-			currentNode = currentNode.next;
-		}
-		return currentNode.data;
+		// TODO: Implement method
+		return null;
 	}
 
 	@Override
 	public void add(int index, T element) {
-		if (index < 0 || index > n)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-		
-		Node<T> currentNode = head;
-		for (int i = 0; i < index-1; i++) {
-			currentNode = currentNode.next;
-		}
-		Node<T> newNode = new Node<T>(element);
-		Node<T> temp = currentNode.next;
-		currentNode.next = newNode;
-		newNode.next = temp;
-		n++;
+		// TODO: Implement method
 	}
 
 	@Override
 	public void add(T element) {
-		Node<T> newNode = new Node<T>(element);
-		if (head == null) {
-			head = newNode;
-			n++;
-			return;
-		}
-		
-		Node<T> currentNode = head;
-		while (currentNode.next != null) {
-			currentNode = currentNode.next;
-		}
-		currentNode.next = newNode;
-		n++;
+		// TODO: Implement method
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -81,7 +53,7 @@ public class LinkedList<T> implements List<T> {
 		T data;
 		Node<T> next;
 
-		public Node(T data) {
+		private Node(T data) {
 			this.data = data;
 		}
 	}
