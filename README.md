@@ -7,7 +7,24 @@ Each have their own appealing features which we will explore in this task.
 For both ArrayList and LinkedList, implement **add(element)**, **add(index, element)** and **get(index)**.
 
 Run ArrayLinkedTest.java to see if your implementation is correct.
-Then run Main.java. Analyze the output and reflect on the time complexity of each method for the two datastructures.
+Main.java performs a set of operations using both ArrayList and LinkedList:
+  * Random Insertion
+    * Insert an element at a random index
+  * Head Insertion
+    * Insert an element at index 0
+  * Tail Insertion
+    * Insert an element at index size()-1
+
+  * Random Access
+    * Access an element at a random index
+  * Head Access
+    * Access an element at index 0
+  * Tail Access
+    * Access an element at index size()-1
+
+Each operation is repeated ``n`` times. The time of these operations are timed and compared for the two different datastructures.
+
+Why do ArrayList and LinkedList perform differently at these operations? **Give a Big-O analysis**.
 
 ## Expected output
 ```
