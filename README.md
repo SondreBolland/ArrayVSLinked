@@ -7,6 +7,7 @@ Each have their own appealing features which we will explore in this task.
 For both ArrayList and LinkedList, implement **add(element)**, **add(index, element)** and **get(index)**.
 
 Run ArrayLinkedTest.java to see if your implementation is correct.
+
 Main.java performs a set of operations using both ArrayList and LinkedList:
   * Insertion
     - Insert an element at a random index
