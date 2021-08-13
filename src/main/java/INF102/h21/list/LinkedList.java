@@ -20,6 +20,9 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T get(int index) {
+		if (index < 0 || index > n-1)
+			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
+		
 		Node<T> currentNode = head;
 		for (int i = 0; i < index; i++) {
 			currentNode = currentNode.next;
@@ -29,8 +32,14 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public void add(int index, T element) {
-		if (index < 0 || index > n)
+		if (index < 0 || index > n-1)
 			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
+		
+		if (index == 0) {
+			Node<T> newNode = new Node<>(element);
+			newNode.next = head;
+			head = newNode;
+		}
 		
 		Node<T> currentNode = head;
 		for (int i = 0; i < index-1; i++) {

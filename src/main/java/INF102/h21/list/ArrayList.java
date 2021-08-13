@@ -18,14 +18,14 @@ public class ArrayList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
-		if (index < 0 || index > n)
+		if (index < 0 || index > n-1)
 			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
 		return (T) elements[index];
 	}
 	
 	@Override
 	public void add(int index, T element) {
-		if (index < 0 || index > n)
+		if (index < 0 || index > n-1)
 			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
 		if (n+2 > elements.length)
 			ensureCapacity();
@@ -36,11 +36,12 @@ public class ArrayList<T> implements List<T> {
 		T nextElement = get(index+1);
 		elements[index] = element;
 		int currentIndex = index+1;
-		while (currentIndex < lastIndex+1) {
+		while (currentIndex < lastIndex) {
 			elements[currentIndex] = currentElement;
 			currentElement = nextElement;
 			nextElement = get(++currentIndex);
-		}		
+		}
+		elements[currentIndex] = currentElement;
 	}
 	
 	@Override
