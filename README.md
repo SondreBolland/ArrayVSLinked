@@ -7,7 +7,7 @@ In this task LinkedList is singly linked.
 
 ## Task
 For both ArrayList and LinkedList, implement **add(element)**, **add(index, element)** and **get(index)**.
-Run ArrayLinkedTest.java to see if your implementation is correct.
+Run LinkedListTest.java and ArrayListTest.java to see if your implementation is correct.
 
 Main.java performs a set of operations using both ArrayList and LinkedList:
   * Insertion
