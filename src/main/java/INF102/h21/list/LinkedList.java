@@ -2,8 +2,6 @@ package INF102.h21.list;
 
 public class LinkedList<T> implements List<T> {
 
-	public static final int DEFAULT_CAPACITY = 10;
-
 	private int n;
 
 	private Node<T> head;
