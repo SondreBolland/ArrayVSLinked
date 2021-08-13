@@ -61,3 +61,4 @@ Why do ArrayList and LinkedList perform differently at these operations? **Give 
   ?? BEST
   LinkedList spent ?? % of the time ArrayList did.
   ```
+The question marks will be filled in with the timing results after implementation.
