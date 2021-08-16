@@ -6,8 +6,12 @@ Each have their own appealing features which we will explore in this task.
 In this task LinkedList is singly linked.
 
 ## Task
-For both ArrayList and LinkedList, implement **add(element)**, **add(index, element)** and **get(index)**.
-Run ArrayLinkedTest.java to see if your implementation is correct.
+For both ArrayList and LinkedList implement:
+1. **add(element)**
+2. **add(index, element)**
+3. **get(index)**
+
+Run LinkedListTest.java and ArrayListTest.java to see if your implementation is correct.
 
 Main.java performs a set of operations using both ArrayList and LinkedList:
   * Insertion
@@ -61,3 +65,4 @@ Why do ArrayList and LinkedList perform differently at these operations? **Give 
   ?? BEST
   LinkedList spent ?? % of the time ArrayList did.
   ```
+The question marks will be filled in with the timing results after implementation.
