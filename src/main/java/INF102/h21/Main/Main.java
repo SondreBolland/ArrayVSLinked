@@ -24,6 +24,8 @@ public class Main {
 			linkedList.add(i);
 		}
 
+		// For each operation (insertion and access) time the 
+		// process for both LinkedList and ArrayList
 		long timeElapsedArray;
 		long timeElapsedLinked;
 		int nOperations = 10000;
