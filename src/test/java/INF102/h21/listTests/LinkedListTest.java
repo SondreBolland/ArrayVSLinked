@@ -12,25 +12,25 @@ import INF102.h21.list.List;
 
 public class LinkedListTest {
 
-	List<Integer> arrayList;
+	List<Integer> linkedList;
 	
 	@Before
 	public void setup() {
-		arrayList = new LinkedList<>();
+		linkedList = new LinkedList<>();
 	}
 	
 	@Test
 	public void addSingleElementTest() {
 		Integer element = 42;
-		arrayList.add(element);
-		assertEquals(element, arrayList.get(0));
+		linkedList.add(element);
+		assertEquals(element, linkedList.get(0));
 	}
 	
 	@Test
 	public void add100ElementsTest() {
 		for (Integer i = 0; i < 100; i++) {
-			arrayList.add(i);
-			assertEquals(i, arrayList.get(i));
+			linkedList.add(i);
+			assertEquals(i, linkedList.get(i));
 		}
 	}
 	
@@ -38,25 +38,25 @@ public class LinkedListTest {
 	public void sizeTest() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
-		assertEquals(nElements, (Integer) arrayList.size());
+		assertEquals(nElements, (Integer) linkedList.size());
 	}
 	
 	@Test
 	public void insertTest() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
-		int currentSize = arrayList.size();
+		int currentSize = linkedList.size();
 		
 		Integer element = 42;
 		Integer index = 50;
-		arrayList.add(index, 42);
-		assertEquals(element, arrayList.get(index));
+		linkedList.add(index, 42);
+		assertEquals(element, linkedList.get(index));
 		
-		Integer newSize = arrayList.size();
+		Integer newSize = linkedList.size();
 		assertEquals(currentSize, newSize-1);
 	}
 	
@@ -64,41 +64,41 @@ public class LinkedListTest {
 	public void headInsert() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
 		
 		Integer element = 42;
 		Integer index = 0;
-		arrayList.add(index, 42);
-		assertEquals(element, arrayList.get(index));
+		linkedList.add(index, 42);
+		assertEquals(element, linkedList.get(index));
 	}
 	
 	@Test
 	public void tailInsert() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
 		
 		Integer element = 42;
-		Integer index = arrayList.size()-1;
-		arrayList.add(index, 42);
-		assertEquals(element, arrayList.get(index));
+		Integer index = linkedList.size()-1;
+		linkedList.add(index, 42);
+		assertEquals(element, linkedList.get(index));
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void accessEmptyList() {
-		arrayList.get(0);
+		linkedList.get(0);
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void accessAboveBound() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
 		Integer index = 100;
-		arrayList.get(index);
+		linkedList.get(index);
 	}
 	
 	@Test
@@ -107,16 +107,16 @@ public class LinkedListTest {
 		
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			linkedList.add(i);
 		}
 		
 		for (Integer i = 0; i < nElements; i++) {
-			Integer randomIndex = rand.nextInt(arrayList.size());
+			Integer randomIndex = rand.nextInt(linkedList.size());
 			Integer randomNumber = rand.nextInt(1000);
-			arrayList.add(randomIndex, randomNumber);
-			assertEquals(randomNumber, arrayList.get(randomIndex));
+			linkedList.add(randomIndex, randomNumber);
+			assertEquals(randomNumber, linkedList.get(randomIndex));
 		}
 		
-		assertEquals(nElements*2, arrayList.size());
+		assertEquals(nElements*2, linkedList.size());
 	}
 }
