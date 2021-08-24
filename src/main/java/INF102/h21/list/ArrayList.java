@@ -1,7 +1,5 @@
 package INF102.h21.list;
 
-import java.util.Arrays;
-
 public class ArrayList<T> implements List<T> {
 
 	public static final int DEFAULT_CAPACITY = 10;

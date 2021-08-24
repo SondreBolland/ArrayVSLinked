@@ -36,9 +36,11 @@ public class LinkedListTest {
 	
 	@Test
 	public void sizeTest() {
+		assertEquals(0, linkedList.size());
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
 			linkedList.add(i);
+			assertEquals((i+1), linkedList.size());
 		}
 		assertEquals(nElements, (Integer) linkedList.size());
 	}
@@ -53,7 +55,7 @@ public class LinkedListTest {
 		
 		Integer element = 42;
 		Integer index = 50;
-		linkedList.add(index, 42);
+		linkedList.add(index, element);
 		assertEquals(element, linkedList.get(index));
 		
 		Integer newSize = linkedList.size();
@@ -69,7 +71,7 @@ public class LinkedListTest {
 		
 		Integer element = 42;
 		Integer index = 0;
-		linkedList.add(index, 42);
+		linkedList.add(index, element);
 		assertEquals(element, linkedList.get(index));
 	}
 	
