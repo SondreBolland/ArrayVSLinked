@@ -36,9 +36,11 @@ public class ArrayListTest {
 	
 	@Test
 	public void sizeTest() {
+		assertEquals(0, arrayList.size());
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
 			arrayList.add(i);
+			assertEquals((i+1), arrayList.size());
 		}
 		assertEquals(nElements, (Integer) arrayList.size());
 	}
@@ -53,7 +55,7 @@ public class ArrayListTest {
 		
 		Integer element = 42;
 		Integer index = 50;
-		arrayList.add(index, 42);
+		arrayList.add(index, element);
 		assertEquals(element, arrayList.get(index));
 		
 		Integer newSize = arrayList.size();
@@ -69,7 +71,7 @@ public class ArrayListTest {
 		
 		Integer element = 42;
 		Integer index = 0;
-		arrayList.add(index, 42);
+		arrayList.add(index, element);
 		assertEquals(element, arrayList.get(index));
 	}
 	

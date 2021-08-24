@@ -37,6 +37,8 @@ public class LinkedList<T> implements List<T> {
 			Node<T> newNode = new Node<>(element);
 			newNode.next = head;
 			head = newNode;
+			n++;
+			return;
 		}
 		
 		Node<T> currentNode = head;
