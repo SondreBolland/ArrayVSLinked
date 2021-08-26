@@ -39,9 +39,20 @@ public interface List<T> {
 	public void add(int index, T element);
 	
 	/**
+     * Appends the specified element to the beginning of this list.
+     *
+     * @param element element to be appended to this list
+     */
+	default void addFirst(T element) {
+		add(0,element);
+	};
+
+	/**
      * Appends the specified element to the end of this list.
      *
      * @param element element to be appended to this list
      */
-	public void add(T element);
+	default void addLast(T element) {
+		add(size(),element);
+	};
 }

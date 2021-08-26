@@ -4,6 +4,7 @@ import INF102.h21.list.List;
 
 import java.text.DecimalFormat;
 import java.util.Random;
+import java.util.function.Consumer;
 
 import INF102.h21.list.ArrayList;
 import INF102.h21.list.LinkedList;
@@ -14,29 +15,31 @@ public class Main {
 
 	public static DecimalFormat formatter = new DecimalFormat("#, ###");
 
+	private static int nOperations;
+
 	public static void main(String[] args) {
 		List<Integer> arrayList = new ArrayList<>();
 		List<Integer> linkedList = new LinkedList<>();
 
 		int initalSize = 1000;
 		for (int i = 0; i < initalSize; i++) {
-			arrayList.add(i);
-			linkedList.add(i);
+			arrayList.addLast(i);
+			linkedList.addLast(i);
 		}
 
 		// For each operation (insertion and access) time the 
 		// process for both LinkedList and ArrayList
 		long timeElapsedArray;
 		long timeElapsedLinked;
-		int nOperations = 10000;
+		nOperations = 10000;
 
 		// Random Insertion
 		// ArrayList
 		System.out.printf("----%sRandom Insertions----%n", formatter.format(nOperations));
-		timeElapsedArray = timeRandomInsertion(arrayList, nOperations);
+		timeElapsedArray = timeRandomInsertion(arrayList);
 		printResult(arrayList, timeElapsedArray);
 		// Linked List
-		timeElapsedLinked = timeRandomInsertion(linkedList, nOperations);
+		timeElapsedLinked = timeListMethod(linkedList, Main::randomInsertion);
 		printResult(linkedList, timeElapsedLinked);
 		printPercentage(timeElapsedArray, timeElapsedLinked);
 
@@ -99,9 +102,9 @@ public class Main {
 	 * @param nInsertions number of insertions to be performed
 	 * @return time (nanoseconds) taken to perform operations
 	 */
-	public static long timeRandomInsertion(List<Integer> list, int nInsertions) {
+	public static long timeRandomInsertion(List<Integer> list) {
 		long startTime = System.nanoTime();
-		randomInsertion(list, nInsertions);
+		randomInsertion(list);
 		long endTime = System.nanoTime();
 		long timeElapsed = (endTime - startTime) / 1000;
 		return timeElapsed;
@@ -180,11 +183,12 @@ public class Main {
 	 * @return time (nanoseconds) taken to perform operations
 	 */
 	public static long timeTailAccess(List<Integer> list, int nAccess) {
-		long startTime = System.nanoTime();
-		tailAccess(list, nAccess);
-		long endTime = System.nanoTime();
-		long timeElapsed = (endTime - startTime) / 1000;
-		return timeElapsed;
+		return timeListMethod(list, Main::tailAccess);
+//		long startTime = System.nanoTime();
+//		tailAccess(list);
+//		long endTime = System.nanoTime();
+//		long timeElapsed = (endTime - startTime) / 1000;
+//		return timeElapsed;
 	}
 	
 	public static void printResult(List<Integer> list, long microSeconds) {
@@ -237,9 +241,9 @@ public class Main {
 	 * @param list of integers
 	 * @param n    inserts
 	 */
-	public static void tailAccess(List<Integer> list, int n) {
+	public static void tailAccess(List<Integer> list) {
 		int listLength = list.size();
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < nOperations; i++) {
 			list.get(listLength - 1);
 		}
 	}
@@ -250,9 +254,9 @@ public class Main {
 	 * @param list of integers
 	 * @param n    inserts
 	 */
-	public static void randomInsertion(List<Integer> list, int n) {
+	public static void randomInsertion(List<Integer> list) {
 		int listLength = list.size();
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < nOperations; i++) {
 			int randomIndex = rand.nextInt(listLength - 1);
 			list.add(randomIndex, 42);
 		}
@@ -267,7 +271,7 @@ public class Main {
 	 */
 	public static void tailInsertion(List<Integer> list, int n) {
 		for (int i = 0; i < n; i++) {
-			list.add(42);
+			list.addLast(42);
 		}
 	}
 
@@ -282,5 +286,13 @@ public class Main {
 		for (int i = 0; i < n; i++) {
 			list.add(0, 42);
 		}
+	}
+	
+	public static long timeListMethod(List<Integer> list, Consumer<List<Integer>> method) {
+		long startTime = System.nanoTime();
+		method.accept(list);
+		long endTime = System.nanoTime();
+		long timeElapsed = (endTime - startTime) / 1000;
+		return timeElapsed;
 	}
 }

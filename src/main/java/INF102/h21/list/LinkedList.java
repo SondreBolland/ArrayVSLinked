@@ -2,81 +2,65 @@ package INF102.h21.list;
 
 public class LinkedList<T> implements List<T> {
 
-	private int n;
-
+	private int size;
+	
+	/**
+	 * If list is empty, head == null
+	 * else head is the first element of the list.
+	 */
 	private Node<T> head;
 
 	@Override
 	public int size() {
-		return n;
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return n == 0;
+		return size == 0;
 	}
 
 	@Override
 	public T get(int index) {
-		if (index < 0 || index > n-1)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-		
-		Node<T> currentNode = head;
-		for (int i = 0; i < index; i++) {
-			currentNode = currentNode.next;
-		}
-		return currentNode.data;
+		return getNode(index).data;
 	}
 
 	@Override
 	public void add(int index, T element) {
-		if (index < 0 || index > n-1)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-		
+		Node<T> newNode = new Node<T>(element);
+
 		if (index == 0) {
-			Node<T> newNode = new Node<>(element);
 			newNode.next = head;
 			head = newNode;
-			n++;
-			return;
 		}
-		
-		Node<T> currentNode = head;
-		for (int i = 0; i < index-1; i++) {
-			currentNode = currentNode.next;
+		else {
+			Node<T> currentNode = getNode(index-1);
+			newNode.next = currentNode.next;
+			currentNode.next = newNode;
 		}
-		Node<T> newNode = new Node<T>(element);
-		Node<T> temp = currentNode.next;
-		currentNode.next = newNode;
-		newNode.next = temp;
-		n++;
+		size++;
 	}
 
-	@Override
-	public void add(T element) {
-		Node<T> newNode = new Node<T>(element);
-		if (head == null) {
-			head = newNode;
-			n++;
-			return;
-		}
-		
+	private Node<T> getNode(int index) {
+		if (index < 0 || index >= size)
+			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + size + " n elements.");
+
 		Node<T> currentNode = head;
-		while (currentNode.next != null) {
+		for (int i = 0; i < index; i++) {
 			currentNode = currentNode.next;
 		}
-		currentNode.next = newNode;
-		n++;
+		return currentNode;
 	}
+
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public String toString() {
-		StringBuilder str = new StringBuilder(n*3 + 2);
+		StringBuilder str = new StringBuilder(size*3 + 2);
 		str.append("[");
 		Node<T> currentNode = head;
 		while (currentNode.next != null) {
-			str.append((T) currentNode.data);
+			str.append(currentNode.data);
 			str.append(", ");
 			currentNode = currentNode.next;
 		}

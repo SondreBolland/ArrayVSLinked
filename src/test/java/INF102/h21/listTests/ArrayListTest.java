@@ -22,14 +22,14 @@ public class ArrayListTest {
 	@Test
 	public void addSingleElementTest() {
 		Integer element = 42;
-		arrayList.add(element);
+		arrayList.addLast(element);
 		assertEquals(element, arrayList.get(0));
 	}
 	
 	@Test
 	public void add100ElementsTest() {
 		for (Integer i = 0; i < 100; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 			assertEquals(i, arrayList.get(i));
 		}
 	}
@@ -39,7 +39,7 @@ public class ArrayListTest {
 		assertEquals(0, arrayList.size());
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 			assertEquals((i+1), arrayList.size());
 		}
 		assertEquals(nElements, (Integer) arrayList.size());
@@ -49,7 +49,7 @@ public class ArrayListTest {
 	public void insertTest() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 		}
 		int currentSize = arrayList.size();
 		
@@ -66,7 +66,7 @@ public class ArrayListTest {
 	public void headInsert() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 		}
 		
 		Integer element = 42;
@@ -79,7 +79,7 @@ public class ArrayListTest {
 	public void tailInsert() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 		}
 		
 		Integer element = 42;
@@ -97,7 +97,7 @@ public class ArrayListTest {
 	public void accessAboveBound() {
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 		}
 		Integer index = 100;
 		arrayList.get(index);
@@ -109,7 +109,7 @@ public class ArrayListTest {
 		
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 		}
 		
 		for (Integer i = 0; i < nElements; i++) {
