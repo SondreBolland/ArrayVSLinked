@@ -1,6 +1,5 @@
 package INF102.h21.list;
 
-import java.util.Arrays;
 
 public class ArrayList<T> implements List<T> {
 
@@ -15,35 +14,16 @@ public class ArrayList<T> implements List<T> {
 		elements = new Object[DEFAULT_CAPACITY];
 	}
 	
-	
-	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) {
-		if (index < 0 || index >= n)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-		return (T) elements[index];
+		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	@Override
 	public void add(int index, T element) {
-		if (index < 0 || index > n)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-		if (n+2 > elements.length)
-			ensureCapacity();
-
-		while (index < size()) {
-			T tempElement = get(index);
-			elements[index] = element;
-			element = tempElement;
-			index++;
-		}
-		elements[index] = element;
-		n++;
-	}
-	
-	public void ensureCapacity() {
-		int newSize = elements.length * 2;
-        elements = Arrays.copyOf(elements, newSize);
+		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 	
 	@Override

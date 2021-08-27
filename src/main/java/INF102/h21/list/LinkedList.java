@@ -27,29 +27,13 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public void add(int index, T element) {
-		Node<T> newNode = new Node<T>(element);
-
-		if (index == 0) {
-			newNode.next = head;
-			head = newNode;
-		}
-		else {
-			Node<T> currentNode = getNode(index-1);
-			newNode.next = currentNode.next;
-			currentNode.next = newNode;
-		}
-		n++;
+		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 
 	private Node<T> getNode(int index) {
-		if (index < 0 || index >= n)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
-
-		Node<T> currentNode = head;
-		for (int i = 0; i < index; i++) {
-			currentNode = currentNode.next;
-		}
-		return currentNode;
+		// TODO: Implement method
+		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 
 	
