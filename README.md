@@ -7,8 +7,8 @@ In this task LinkedList is singly linked.
 
 ## Task
 For both ArrayList and LinkedList implement:
-1. **add(index, element)**
-2. **get(index)**
+1. **get(index)**
+2. **add(index, element)**
 
 Run LinkedListTest.java and ArrayListTest.java to see if your implementation is correct.
 
