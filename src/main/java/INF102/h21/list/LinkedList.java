@@ -2,7 +2,7 @@ package INF102.h21.list;
 
 public class LinkedList<T> implements List<T> {
 
-	private int size;
+	private int n;
 	
 	/**
 	 * If list is empty, head == null
@@ -12,12 +12,12 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public int size() {
-		return size;
+		return n;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return size == 0;
+		return n == 0;
 	}
 
 	@Override
@@ -38,12 +38,12 @@ public class LinkedList<T> implements List<T> {
 			newNode.next = currentNode.next;
 			currentNode.next = newNode;
 		}
-		size++;
+		n++;
 	}
 
 	private Node<T> getNode(int index) {
-		if (index < 0 || index >= size)
-			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + size + " n elements.");
+		if (index < 0 || index >= n)
+			throw new IndexOutOfBoundsException("Index:" + index + " is out of bounds. The list has " + n + " n elements.");
 
 		Node<T> currentNode = head;
 		for (int i = 0; i < index; i++) {
@@ -56,7 +56,7 @@ public class LinkedList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public String toString() {
-		StringBuilder str = new StringBuilder(size*3 + 2);
+		StringBuilder str = new StringBuilder(n*3 + 2);
 		str.append("[");
 		Node<T> currentNode = head;
 		while (currentNode.next != null) {

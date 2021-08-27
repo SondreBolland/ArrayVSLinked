@@ -34,7 +34,7 @@ public interface List<T> {
      * @param index index at which the specified element is to be inserted
      * @param element element to be inserted
      * @throws IndexOutOfBoundsException if the index is out of range
-     *         ({@code index < 0 || index > size()})
+     *         ({@code index < 0 || index >= size()})
      */
 	public void add(int index, T element);
 	

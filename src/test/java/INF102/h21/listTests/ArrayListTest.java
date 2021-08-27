@@ -45,12 +45,16 @@ public class ArrayListTest {
 		assertEquals(nElements, (Integer) arrayList.size());
 	}
 	
+	public void addNElements(List<Integer> list, int n) {
+		for (Integer i = 0; i < n; i++) {
+			list.addLast(i);
+		}
+	}
+	
 	@Test
 	public void insertTest() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.addLast(i);
-		}
+		addNElements(arrayList, nElements);
 		int currentSize = arrayList.size();
 		
 		Integer element = 42;
@@ -65,9 +69,7 @@ public class ArrayListTest {
 	@Test
 	public void headInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.addLast(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		Integer element = 42;
 		Integer index = 0;
@@ -78,9 +80,7 @@ public class ArrayListTest {
 	@Test
 	public void tailInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.addLast(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		Integer element = 42;
 		Integer index = arrayList.size()-1;
@@ -96,10 +96,8 @@ public class ArrayListTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void accessAboveBound() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.addLast(i);
-		}
-		Integer index = 100;
+		addNElements(arrayList, nElements);
+		Integer index = nElements;
 		arrayList.get(index);
 	}
 	
@@ -108,9 +106,7 @@ public class ArrayListTest {
 		Random rand = new Random();
 		
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.addLast(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		for (Integer i = 0; i < nElements; i++) {
 			Integer randomIndex = rand.nextInt(arrayList.size());
