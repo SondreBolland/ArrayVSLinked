@@ -31,7 +31,7 @@ public class Main {
 		// process for both LinkedList and ArrayList
 		long timeElapsedArray;
 		long timeElapsedLinked;
-		nOperations = 100000;
+		nOperations = 10000;
 
 		// Random Insertion
 		// ArrayList
