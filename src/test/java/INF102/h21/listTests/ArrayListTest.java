@@ -22,14 +22,14 @@ public class ArrayListTest {
 	@Test
 	public void addSingleElementTest() {
 		Integer element = 42;
-		arrayList.add(element);
+		arrayList.addLast(element);
 		assertEquals(element, arrayList.get(0));
 	}
 	
 	@Test
 	public void add100ElementsTest() {
 		for (Integer i = 0; i < 100; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 			assertEquals(i, arrayList.get(i));
 		}
 	}
@@ -39,18 +39,22 @@ public class ArrayListTest {
 		assertEquals(0, arrayList.size());
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
+			arrayList.addLast(i);
 			assertEquals((i+1), arrayList.size());
 		}
 		assertEquals(nElements, (Integer) arrayList.size());
+	}
+
+	public void addNElements(List<Integer> list, int n) {
+		for (Integer i = 0; i < n; i++) {
+			list.addLast(i);
+		}
 	}
 	
 	@Test
 	public void insertTest() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
-		}
+		addNElements(arrayList, nElements);
 		int currentSize = arrayList.size();
 		
 		Integer element = 42;
@@ -65,9 +69,7 @@ public class ArrayListTest {
 	@Test
 	public void headInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		Integer element = 42;
 		Integer index = 0;
@@ -78,9 +80,7 @@ public class ArrayListTest {
 	@Test
 	public void tailInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		Integer element = 42;
 		Integer index = arrayList.size()-1;
@@ -96,10 +96,9 @@ public class ArrayListTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void accessAboveBound() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
-		}
-		Integer index = 100;
+		Integer index = nElements;
+
+		addNElements(arrayList, nElements);
 		arrayList.get(index);
 	}
 	
@@ -108,9 +107,7 @@ public class ArrayListTest {
 		Random rand = new Random();
 		
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			arrayList.add(i);
-		}
+		addNElements(arrayList, nElements);
 		
 		for (Integer i = 0; i < nElements; i++) {
 			Integer randomIndex = rand.nextInt(arrayList.size());
@@ -122,3 +119,4 @@ public class ArrayListTest {
 		assertEquals(nElements*2, arrayList.size());
 	}
 }
+

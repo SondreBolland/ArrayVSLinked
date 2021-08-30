@@ -3,7 +3,11 @@ package INF102.h21.list;
 public class LinkedList<T> implements List<T> {
 
 	private int n;
-
+	
+	/**
+	 * If list is empty, head == null
+	 * else head is the first element of the list.
+	 */
 	private Node<T> head;
 
 	@Override
@@ -18,18 +22,16 @@ public class LinkedList<T> implements List<T> {
 
 	@Override
 	public T get(int index) {
+		return getNode(index).data;
+	}
+	
+	private Node<T> getNode(int index) {
 		// TODO: Implement method
 		throw new UnsupportedOperationException("Not implemented yet.");
 	}
 
 	@Override
 	public void add(int index, T element) {
-		// TODO: Implement method
-		throw new UnsupportedOperationException("Not implemented yet.");
-	}
-
-	@Override
-	public void add(T element) {
 		// TODO: Implement method
 		throw new UnsupportedOperationException("Not implemented yet.");
 	}
@@ -41,7 +43,7 @@ public class LinkedList<T> implements List<T> {
 		str.append("[");
 		Node<T> currentNode = head;
 		while (currentNode.next != null) {
-			str.append((T) currentNode.data);
+			str.append(currentNode.data);
 			str.append(", ");
 			currentNode = currentNode.next;
 		}

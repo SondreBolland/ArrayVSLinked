@@ -6,10 +6,17 @@ Each have their own appealing features which we will explore in this task.
 In this task LinkedList is singly linked.
 
 ## Task
+<<<<<<< HEAD
 For both **ArrayList** and **LinkedList** implement:
 1. ``add(element)``
 2. ``add(index, element)``
 3. ``get(index)``
+=======
+For both ArrayList and LinkedList implement:
+1. **get(index)**
+2. **add(index, element)**
+
+>>>>>>> 654da8170fa134d7580de05a00f219c1cd896f78
 
 Run LinkedListTest.java and ArrayListTest.java to see if your implementation is correct.
 

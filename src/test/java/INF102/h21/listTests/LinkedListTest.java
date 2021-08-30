@@ -22,14 +22,14 @@ public class LinkedListTest {
 	@Test
 	public void addSingleElementTest() {
 		Integer element = 42;
-		linkedList.add(element);
+		linkedList.addLast(element);
 		assertEquals(element, linkedList.get(0));
 	}
 	
 	@Test
 	public void add100ElementsTest() {
 		for (Integer i = 0; i < 100; i++) {
-			linkedList.add(i);
+			linkedList.addLast(i);
 			assertEquals(i, linkedList.get(i));
 		}
 	}
@@ -39,18 +39,22 @@ public class LinkedListTest {
 		assertEquals(0, linkedList.size());
 		Integer nElements = 100;
 		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
+			linkedList.addLast(i);
 			assertEquals((i+1), linkedList.size());
 		}
 		assertEquals(nElements, (Integer) linkedList.size());
+	}
+
+	public void addNElements(List<Integer> list, int n) {
+		for (Integer i = 0; i < n; i++) {
+			list.addLast(i);
+		}
 	}
 	
 	@Test
 	public void insertTest() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
-		}
+		addNElements(linkedList, nElements);
 		int currentSize = linkedList.size();
 		
 		Integer element = 42;
@@ -65,9 +69,7 @@ public class LinkedListTest {
 	@Test
 	public void headInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
-		}
+		addNElements(linkedList, nElements);
 		
 		Integer element = 42;
 		Integer index = 0;
@@ -78,9 +80,7 @@ public class LinkedListTest {
 	@Test
 	public void tailInsert() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
-		}
+		addNElements(linkedList, nElements);
 		
 		Integer element = 42;
 		Integer index = linkedList.size()-1;
@@ -96,10 +96,9 @@ public class LinkedListTest {
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void accessAboveBound() {
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
-		}
-		Integer index = 100;
+		Integer index = nElements;
+
+		addNElements(linkedList, nElements);
 		linkedList.get(index);
 	}
 	
@@ -108,9 +107,7 @@ public class LinkedListTest {
 		Random rand = new Random();
 		
 		Integer nElements = 100;
-		for (Integer i = 0; i < nElements; i++) {
-			linkedList.add(i);
-		}
+		addNElements(linkedList, nElements);
 		
 		for (Integer i = 0; i < nElements; i++) {
 			Integer randomIndex = rand.nextInt(linkedList.size());
@@ -122,3 +119,4 @@ public class LinkedListTest {
 		assertEquals(nElements*2, linkedList.size());
 	}
 }
+
