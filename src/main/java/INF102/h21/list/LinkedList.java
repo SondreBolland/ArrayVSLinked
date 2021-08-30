@@ -57,7 +57,7 @@ public class LinkedList<T> implements List<T> {
 		T data;
 		Node<T> next;
 
-		private Node(T data) {
+		public Node(T data) {
 			this.data = data;
 		}
 	}
