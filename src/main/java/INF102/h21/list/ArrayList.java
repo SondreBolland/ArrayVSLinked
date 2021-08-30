@@ -1,9 +1,5 @@
 package INF102.h21.list;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 654da8170fa134d7580de05a00f219c1cd896f78
 public class ArrayList<T> implements List<T> {
 
 	
